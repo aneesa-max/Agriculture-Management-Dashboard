@@ -1,0 +1,16 @@
+body {
+  background: #f4f6f9;
+}
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+}
+
+.sidebar.hide {
+  display: none;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

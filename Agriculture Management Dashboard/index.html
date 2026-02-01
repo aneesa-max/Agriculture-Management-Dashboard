@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agriculture Management Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="sidebar bg-dark text-white p-3" id="sidebar">
+    <div class="text-center mb-4">
+      <img src="assets/img/avatar.png" class="rounded-circle" width="70">
+      <h6 class="mt-2">Aneesa</h6>
+      <small>Admin</small>
+    </div>
+
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link text-white" href="#">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#">Crops</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#">Farmers</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#">Reports</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content w-100">
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-light px-3">
+      <button class="btn btn-outline-dark" id="toggleSidebar">☰</button>
+      <h5 class="mb-0">Agriculture Dashboard</h5>
+      <button class="btn btn-danger btn-sm">Logout</button>
+    </nav>
+
+    <div class="container-fluid p-4">
+
+      <!-- Stats Cards -->
+      <div class="row g-3">
+        <div class="col-md-3"><div class="card p-3">Crops <h4 id="cropCount">0</h4></div></div>
+        <div class="col-md-3"><div class="card p-3">Farms <h4>12</h4></div></div>
+        <div class="col-md-3"><div class="card p-3">Farmers <h4>30</h4></div></div>
+        <div class="col-md-3"><div class="card p-3">Yield <h4>4500kg</h4></div></div>
+      </div>
+
+      <!-- Charts -->
+      <div class="row mt-4">
+        <div class="col-md-6"><canvas id="barChart"></canvas></div>
+        <div class="col-md-6"><canvas id="pieChart"></canvas></div>
+        <div class="col-md-12 mt-4"><canvas id="lineChart"></canvas></div>
+      </div>
+
+      <!-- Crops Table -->
+      <div class="mt-5">
+        <h4>Crops Management</h4>
+
+        <div class="d-flex mb-2">
+          <input type="text" id="searchInput" class="form-control w-25 me-2" placeholder="Search crop">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cropModal">Add Crop</button>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Season</th>
+              <th>Yield</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cropTable"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cropModal">
+  <div class="modal-dialog">
+    <form class="modal-content" id="cropForm">
+      <div class="modal-header">
+        <h5>Add Crop</h5>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="cropIndex">
+        <input type="text" id="cropName" class="form-control mb-2" placeholder="Crop Name" required>
+        <input type="text" id="cropSeason" class="form-control mb-2" placeholder="Season" required>
+        <input type="number" id="cropYield" class="form-control" placeholder="Yield" required>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="libs/chart.min.js"></script>
+
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/crops.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
